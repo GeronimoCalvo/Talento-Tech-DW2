@@ -166,14 +166,14 @@
          * EJEMPLO OR - SUBE CON DESCUENTO
          * ESTUDIANTES O JUBILADOS
          */
-        let esEstudiante = true
+       /** let esEstudiante = true
         let esJubilado = false
         //CONDICIONAL SIMPLE - SINTAXIS TRADICIONAL
         if(esEstudiante || esJubilado){
             console.log("podes acceder al descuento")
         } else{
             console.log ("no aplicas al descuento")
-        }
+        }*/ 
        
 // OPERADOR TERNARIO - ABREVIACION PARA LOS COND.SIMPLES
 /**
@@ -191,4 +191,113 @@ Estructura de un operador ternario
      console.log("T - No aplicas al descuento en la SUBE")
 
 */
-        
+    //Clase 4 - Fuciones
+    /** * Intro a funciones 
+     * Parametros
+     * Return
+     * -3 sintaxis para funciones
+     *    -Tradicional (Palabra reservada function + el nombre)
+     *    -Anonima
+     *    -Flecha (arrow
+     * Desafio 4*/
+     // ¿Que es una funcioin?
+     //guardo / concentro 1 o varias lineas de codigo bajo 1 nombre
+     /**
+       declaro la funcion 
+       
+       // palabra reservada function
+       nombre de mi funcion
+       parentesis () donde van los parametros (si hay)
+       llaves {} donde va el bloque de codigo
+      */
+     /** 
+      * function mensajeDeBienvenida(){
+        console.log(" Talento Tech teens")
+        console.log (" curso- desarrolo web 2")
+        console.log ("miercoles de 10 a 12")
+     }*/ 
+     //llamo a la funcion
+    // mensajeDeBienvenida()
+     /**
+      HOISTING (solo en javascript)
+      JAVASCRIPT, AL MOMENTO DE EJECUTARSE "MANDA  PARA ARRIBA" 
+      AUTOMATICAMENTE TODAS LAS FUNCIONES,
+       HACIENDO POSIBLE QUE YO EJECUTE ANTES DE CREAR UNA FUNCION
+      */
+
+     //Algoritmo
+     /** un conjunto de instrucciones para lograr x objetivo 
+       
+     dividido en 3 etapas
+     1. ENTRADA de datos externos
+     2. PROCESAMIENTO dentro de la logica del algoritmo
+     3. SALIDA - dato concreto procesado
+     */
+
+     //agregamos parametros a nuestra funcion
+    /** function mensajeDeBienvenida2(nombre ,generoUser, curso, dia, horario){
+        if (generoUser === "F"){
+            console.log (`Bienvenida ${nombre}`)
+        } else {
+            console.log (`Bienvenido ${nombre}`)
+        }
+        console.log( `Bienvenido ${nombre}`)
+        console.log (`curso - ${curso}`)
+        console.log (`te esperamos los ${dia} a las ${horario} hs`)
+     }
+     mensajeDeBienvenida2 ("Juancito", "Python", "jueves", "20")
+    let nombreUser = prompt ("Ingrese nombre") 
+    let cursoUser = prompt ("Ingrese curso")
+    let generoUser = prompt ("ingrese genero")
+    let diaUser = prompt ("Ingrese dia")
+    let horarioUser = prompt ("Ingrese hora")
+    
+    mensajeDeBienvenida2(nombreUser, cursoUser, diaUser, horarioUser)
+    mensajeDeBienvenida2(" Juana", "Python", "F", "Miercoles", "11hs")
+    mensajeDeBienvenida2 (" Juan", "Python", "F", "Miercoles", "11hs")
+    mensajeDeBienvenida2*/ 
+
+    //DIFERENCIA IMPORTANTE
+    //VISUALIZAR EN PANTALLA NO ES IGUAL A TENER UN RESULTADO FORMAL
+
+    //1.sintaxis tradicional para funciones
+    function suma2(n1, n2){
+        return n1 + n2
+    }
+   console.log (suma2(10,5))
+
+   //2.fuciones anonima (no tiene nombre)
+   const suma3 = function(){
+    let res = n1 + n2
+    return res
+   }
+
+   //3. Funciones Flechas / Arrow functions
+   /**
+    * la funncion flecha nacio originalmente como una abreviacion de las anonimas,
+    * pero con el paso del tiempo se convirtio en el estandar a la hora de declarar funciones
+    * - no tiene nombre (no confundir con alojaralas en una constante)
+    * - no usan la palabra reservada function
+    * - nueva sintaxis => entre () y {}
+    * - return implicito, en funciones de 1 sola linea , no hace falta escribir return,
+    * se genera automaticamente
+    */
+   const suma4 = (n1 , n2) => n1 + n2
+   const resta = (n1 , n2) => n1 - n2
+   const multi = (n1 , n2) => n1 * n2
+   const div   = (n1 , n2) => n1 / n2
+
+   // SCOPE DE LAS VARIABLES / ALCANCE DE LAS VARIABLES
+
+   /**
+     2 TIPOS DE ALCANCES DE UNA VARIABLE
+
+     VARIABLES GLOBALES
+     -SON ACCESIBLES EN CADA RINCON DEL CODIGO
+     - NO TIENEN UN BLOQUE {} QUE LAS CONTENGA
+
+     VARIABLES LOCALES
+     - SOLO EXISTEN DENTRO DEL BLOQUE {} EN EL CUAL FUERON DECLARADAS
+     - FUERA DE ESTE NO EXISTEN
+     - PERMITE QUE EXISTAN VARIABLES LOCALES DEW MISMO NOMBRE EN DISTINTOS BLOQUES
+    */
