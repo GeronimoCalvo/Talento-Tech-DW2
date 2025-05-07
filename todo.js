@@ -261,7 +261,8 @@ Estructura de un operador ternario
     //VISUALIZAR EN PANTALLA NO ES IGUAL A TENER UN RESULTADO FORMAL
 
     //1.sintaxis tradicional para funciones
-    function suma2(n1, n2){
+   /**
+    * function suma2(n1, n2){
         return n1 + n2
     }
    console.log (suma2(10,5))
@@ -270,7 +271,7 @@ Estructura de un operador ternario
    const suma3 = function(){
     let res = n1 + n2
     return res
-   }
+   } */ 
 
    //3. Funciones Flechas / Arrow functions
    /**
@@ -282,10 +283,13 @@ Estructura de un operador ternario
     * - return implicito, en funciones de 1 sola linea , no hace falta escribir return,
     * se genera automaticamente
     */
-   const suma4 = (n1 , n2) => n1 + n2
+   /**
+    * const suma4 = (n1 , n2) => n1 + n2
    const resta = (n1 , n2) => n1 - n2
    const multi = (n1 , n2) => n1 * n2
    const div   = (n1 , n2) => n1 / n2
+    */
+   
 
    // SCOPE DE LAS VARIABLES / ALCANCE DE LAS VARIABLES
 
@@ -301,3 +305,100 @@ Estructura de un operador ternario
      - FUERA DE ESTE NO EXISTEN
      - PERMITE QUE EXISTAN VARIABLES LOCALES DEW MISMO NOMBRE EN DISTINTOS BLOQUES
     */
+
+     /**
+      * Clase 5
+      * 
+      * -COLECCIONES DE DATOS
+      *  -ARRAYS
+      *  -OBJETOS
+      * -BUCLES
+      * -WHILE
+      * -DO WHILE
+      * -FOR
+      * -FOR IN / FOREACH, ETC-
+      */
+     //COLECCION DE DATOS
+     
+     //Nos permite almacenar en un unico espacio en memoria (en una sola variable)
+     //varios daots ordenados de un modo
+
+     /** VARIABLES Y CONSTANTES - LIMITACION > SOLO SE PUEDE ALMACENAR 1 DATO 
+      ARRAYS / LISTAS / ARREGLOS - 3, 5, 10 , 400 DATOS EN UNICA VARIABLE
+     */
+    //sin array
+    //let nombre1 = "Juan"
+    //let nombre2 = "Pedro"
+    //let nombre3 = "Juana"
+      
+    //APLICANDO ARRAY
+      let nombres= ["Juan" , "Pedro", "Juana", "Marcos", "Lucia", "Gabriel"]
+      //posicion      0        1         2       3         4         5
+
+      //llamo al array completo
+      //console.log (nombres)
+
+      //llamo a un solo elemento del array
+      //console.log(nombres[0])
+
+      /** 
+       * AGREGA UN DATO
+       * unshift - al principio del array
+       * push - al final del array
+       * 
+       Elimina un dato
+       shift
+       pop
+       */
+      
+       //ciclos
+       
+       //for
+
+      // for(let i=0; i<=5; i++ ){
+       // console.log("hola mundo")
+      // }
+
+       // FOR IN - CICLO
+       //quiero repetir el console log por cada nombre en el array de nombres
+
+       //forma vieja de lograrlo
+       //for(let i=0; i<=nombres.length; i++ ){
+        // console.log(`Hola ${nombres[i]}`)
+       //}
+       //forma actual de lograrlo - for in
+       //por cada nombre en el array de nombres
+       //genera el console log saludando
+      /**  console.log("-----------")
+       for(let nombre in nombres){
+        console.log(`Hola ${nombres[nombre]}`)
+       }*/
+
+       //foreach - metodo para arrays de JS que funciona como un ciclo
+      // console.log("-------")
+      // console.log(nombres.forEach((i)=>{console.log(`Hola ${[i]}`)}))
+
+      //WHILE
+      /**
+       * LOS CICLOS WHILE SE BASAN EN EL CUMPLIMIENTO O NO DE UNA CONDICION
+       * 
+       * EN LOS BUCLES ESTABLECEMOS UNA CONDICION
+       *   - MIENTRAS ESA CONDICION SE CUMPLA, EL BLOQUE DE NUESTRO WHILE SE VA A EJECUTAR
+       *   - CUANDO DEJE SDE SER TRUE LA CONDICION, YA NO SE EJECUTA MAS EL BLOQUE DE CODIGO DEL WHILE
+       *   - SUPER IMPORTANTE: EVITAR BUCLES INFINITOS. (CUANDO LA CONDICION SIEMPRE ES TRUE)
+       * CUANDO YO TRABAJO UN BUCLE WHILE, TENOG QUE ASEGURARME DE QUE EN ALGUN MOMEMNTO LA CONDICION VA A ASER FALSE
+       * 
+       */
+      let numero = 0
+
+      while (numero < 5){
+        console.log("El numero es : " + numero)
+        numero++ //fundamental para evitar el bucle infinito
+        //sino, va a ser siempre 1 y nunca va a ser false la condicion.
+      }
+      //WHILE - SE EJECUTA 0(CERO) O MAS VECES - PUEDE NUNCA EJECUTARSE
+      //WHILE - SIEMPRE SE COMPRUEBA LA CONDICION PRIMERO 
+
+      // DO WHILE - SE EJECUTA 1 O MAS VECES - SI O SI SE EJECUTA LA 1RA VEZ.
+      // DO WHILE - LA 1ER VUELTA OCURRE ANTES DE LA 1RA COMPROBACION
+   
