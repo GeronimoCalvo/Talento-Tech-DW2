@@ -332,7 +332,7 @@ Estructura de un operador ternario
     //let nombre3 = "Juana"
       
     //APLICANDO ARRAY
-      let nombres= ["Juan" , "Pedro", "Juana", "Marcos", "Lucia", "Gabriel"]
+      //let nombres= ["Juan" , "Pedro", "Juana", "Marcos", "Lucia", "Gabriel"]
       //posicion      0        1         2       3         4         5
 
       //llamo al array completo
@@ -389,16 +389,104 @@ Estructura de un operador ternario
        * CUANDO YO TRABAJO UN BUCLE WHILE, TENOG QUE ASEGURARME DE QUE EN ALGUN MOMEMNTO LA CONDICION VA A ASER FALSE
        * 
        */
-      let numero = 0
+     /** let numero = 0
 
       while (numero < 5){
         console.log("El numero es : " + numero)
-        numero++ //fundamental para evitar el bucle infinito
+        numero++*/  //fundamental para evitar el bucle infinito
         //sino, va a ser siempre 1 y nunca va a ser false la condicion.
-      }
+      
       //WHILE - SE EJECUTA 0(CERO) O MAS VECES - PUEDE NUNCA EJECUTARSE
       //WHILE - SIEMPRE SE COMPRUEBA LA CONDICION PRIMERO 
 
       // DO WHILE - SE EJECUTA 1 O MAS VECES - SI O SI SE EJECUTA LA 1RA VEZ.
       // DO WHILE - LA 1ER VUELTA OCURRE ANTES DE LA 1RA COMPROBACION
-   
+
+      //Clase 6
+
+      /** Colecciones de datos- nos permiten alojar mas de un dato , en un unico 
+       * espacio de memoria
+       * arrays - se organiza secuencialmente (por oder de aparicion)- juntar varios datos
+       * OBJETOS SE ORGANIZAN A T RAVES DE PARES CLAVE:VALOR- una entidad con dif. carac.
+       * 
+       * ej. objetos
+       * nombre1= "juan"
+       * edad1= 23
+       * persona1 = {nombre : "Juan", edad : 23}
+       */
+      let auto= {
+        marca : "ford",
+        modelo : "Focus",
+        color : "azul",
+        cantPuertas: 5,
+        kilometraje : 10000,
+        es0km : false,
+        patente : "ABC123",
+        tipoMotor : ["nafta", "electrico"],
+        tieneLlantasAleacion : true
+      }
+      //visualizar todo el objeto
+      console.log (auto)
+
+      //visualizar solo una propiedad del obj (dot notation )
+      console.log(auto.marca)
+      
+      //agregar parametro a un objeto pre-existente
+
+      auto.tieneEstereo = true
+      auto.anio = 2014
+
+      //editar propiedades (nuevas o pre-existentes)
+      auto.tieneEstereo = false
+      auto.modelo = "fiesta"
+
+      //eliminar una propiedad (remove)
+      delete auto.color
+      console.log(auto)
+
+      //array de objetos
+     
+      //array de objetos PERSONAS que cada persona tenga nombre, apellido y edad
+      let personas =[
+        {nombre: "Juan", apellido : "Gonzalez", edad: 23},
+        {nombre: "Juana", apellido : "Gomez", edad: 30},
+        {nombre: "Juancho", apellido : "Pera", edad: 20},
+        {nombre: "Juancito", apellido : "Perel", edad: 18},
+      ]
+      
+      //RECORRER LOS OBJETOS - CON BUCLES
+      //for in
+      for (dato in auto){
+        //console.log (auto[dato]) //solo aparecen los valores
+        //console.log (dato) // solo aparecen las claves
+        console.log (`${dato} : ${auto[dato]}`) //aparecen solo los valores
+      }
+
+      //METODO forEach - 1 ojbeto
+      personas.forEach(e =>{
+       for (dato in e){
+        console.log(`Mi ${dato} es : ${e[dato]}`)
+       }
+      });
+
+      //OBJETOS PREDEFINIDOS EN JAVASCRIPT
+      // "EN JAVASCRIPT, TODO ES UN OBJETO"
+      
+      //window.confirm() ventana emergente con un mensaje y opciones
+      //window.open() abre una nueva ventana
+      //window.close() cierra la ventana actual
+      //window.postMessage() envia un mensaje a otra ventana o pestaña
+      /**
+       OBJETO NUMBER
+            -isNan - determina si el valor es de tipo NaN (Not a Number)
+            10+5=15
+            10+hola = NaN
+            
+            - .toFixed() , formatea un numero para que tenga x cantidad de nums decimales
+            - .toString()- convierte un numero en una cadena de texto
+            - parseInt - convierte un string en un INT
+            - parseFloat - convierte un string en un float
+
+       */
+      let num =43
+      console.log(num.toFixed(5)) // 43.00000
