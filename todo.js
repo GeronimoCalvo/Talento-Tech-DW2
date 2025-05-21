@@ -414,7 +414,7 @@ Estructura de un operador ternario
        * edad1= 23
        * persona1 = {nombre : "Juan", edad : 23}
        */
-      let auto= {
+      /**let auto= {
         marca : "ford",
         modelo : "Focus",
         color : "azul",
@@ -488,5 +488,40 @@ Estructura de un operador ternario
             - parseFloat - convierte un string en un float
 
        */
-      let num =43
-      console.log(num.toFixed(5)) // 43.00000
+      //let num =43
+      //console.log(num.toFixed(5)) // 43.00000
+    
+      //Clase 7
+      /**
+       * "Llamar a elementos del HTMLP en nuestro Javascript"
+       * -getElementByID() 
+       * -getElementByClassName()
+       * -getElementByTagName ()
+       * -QuerySelector()
+       */
+      /**
+       * LLAMAR A UN ELEMENTO POR SU ID - 2 POSIBILIDADES
+       *  getElementById ("")
+       */
+      const titulo=document.getElementById("titulo")
+      //conts items = document.getElementsBy
+
+      titulo.style.color =  "green"
+      titulo.style.fontFamily = "Arial, Helvetica, sans-serif"
+      titulo.style.backgroundColor = "yellow"
+      titulo.style.fontSize= "50px"
+      
+      let isMayorDeEdad = true
+      
+      isMayorDeEdad
+      ? titulo.innerText ="green"
+      : titulo.innerText = "red"
+
+      //MODIFICAR TEXTO EN UNA ETIQUETA. HTML
+      console.log (titulo.innerText)
+      titulo.innerText ="Hola pibardos"
+      
+      let arraySuper = ["galletitas" , "jugo" , "Gaseosa"]
+       for (producto in arraySuper){
+        
+       }
