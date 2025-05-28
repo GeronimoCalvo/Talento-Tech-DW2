@@ -503,25 +503,51 @@ Estructura de un operador ternario
        * LLAMAR A UN ELEMENTO POR SU ID - 2 POSIBILIDADES
        *  getElementById ("")
        */
-      const titulo=document.getElementById("titulo")
-      //conts items = document.getElementsBy
+      // const titulo=document.getElementById("titulo")
+      // //conts items = document.getElementsBy
 
-      titulo.style.color =  "green"
-      titulo.style.fontFamily = "Arial, Helvetica, sans-serif"
-      titulo.style.backgroundColor = "yellow"
-      titulo.style.fontSize= "50px"
+      // titulo.style.color =  "green"
+      // titulo.style.fontFamily = "Arial, Helvetica, sans-serif"
+      // titulo.style.backgroundColor = "yellow"
+      // titulo.style.fontSize= "50px"
       
-      let isMayorDeEdad = true
+      // let isMayorDeEdad = true
       
-      isMayorDeEdad
-      ? titulo.innerText ="green"
-      : titulo.innerText = "red"
+      // isMayorDeEdad
+      // ? titulo.innerText ="green"
+      // : titulo.innerText = "red"
 
-      //MODIFICAR TEXTO EN UNA ETIQUETA. HTML
-      console.log (titulo.innerText)
-      titulo.innerText ="Hola pibardos"
+      // //MODIFICAR TEXTO EN UNA ETIQUETA. HTML
+      // console.log (titulo.innerText)
+      // titulo.innerText ="Hola pibardos"
       
-      let arraySuper = ["galletitas" , "jugo" , "Gaseosa"]
-       for (producto in arraySuper){
+      // let arraySuper = ["galletitas" , "jugo" , "Gaseosa"]
+      //  for (producto in arraySuper){
         
-       }
+      //  }
+      //Clase 8
+      /**
+       * Create element = crear una nueva etiqueta
+       * APPEND CHILD = Ubicar una etiqueta dentro del html
+       * remove
+       */
+      const contenedor = document.getElementById("contenedor")
+      //crear un nodo H4 , Y lo alojamos en la variable nuevoSubtitulo
+      let nuevoSubtitulo = document.createElement("h4")
+
+      //con innerTex, le agregamos el texto
+      nuevoSubtitulo.innerText = "Clase 8 !!!"
+      // <h4>Clase 8 !!!</h4>
+     let textoRandom = document.createElement("p")
+     textoRandom.innerText = "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Veniam in at ullam accusamus voluptates beatae dolores aperiam nisi ducimus corrupti modi repudiandae quaerat ea ab asperiores, eos perferendis architecto quam?"
+
+      console.log(nuevoSubtitulo.isConnected) //esta conectado al DOM?
+
+      contenedor.appendChild(nuevoSubtitulo)
+      contenedor.appendChild (textoRandom)
+       console.log(nuevoSubtitulo.isConnected)
+
+       textoRandom.remove()
+       //borra del DOM el elemento seleccionado
+       // DOM - Copia Dinamica del HTML QUE ES LA QUE SE RENDERIZA EN LA WEB
+       // console.log(document) - Objeto Document - tiene todo el DOM (EL HTML)
