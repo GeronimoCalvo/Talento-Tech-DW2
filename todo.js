@@ -531,23 +531,25 @@ Estructura de un operador ternario
        * APPEND CHILD = Ubicar una etiqueta dentro del html
        * remove
        */
-      const contenedor = document.getElementById("contenedor")
-      //crear un nodo H4 , Y lo alojamos en la variable nuevoSubtitulo
-      let nuevoSubtitulo = document.createElement("h4")
+    //   const contenedor = document.getElementById("contenedor")
+    //   //crear un nodo H4 , Y lo alojamos en la variable nuevoSubtitulo
+    //   let nuevoSubtitulo = document.createElement("h4")
 
-      //con innerTex, le agregamos el texto
-      nuevoSubtitulo.innerText = "Clase 8 !!!"
-      // <h4>Clase 8 !!!</h4>
-     let textoRandom = document.createElement("p")
-     textoRandom.innerText = "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Veniam in at ullam accusamus voluptates beatae dolores aperiam nisi ducimus corrupti modi repudiandae quaerat ea ab asperiores, eos perferendis architecto quam?"
+    //   //con innerTex, le agregamos el texto
+    //   nuevoSubtitulo.innerText = "Clase 8 !!!"
+    //   // <h4>Clase 8 !!!</h4>
+    //  let textoRandom = document.createElement("p")
+    //  textoRandom.innerText = "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Veniam in at ullam accusamus voluptates beatae dolores aperiam nisi ducimus corrupti modi repudiandae quaerat ea ab asperiores, eos perferendis architecto quam?"
 
-      console.log(nuevoSubtitulo.isConnected) //esta conectado al DOM?
+    //   console.log(nuevoSubtitulo.isConnected) //esta conectado al DOM?
 
-      contenedor.appendChild(nuevoSubtitulo)
-      contenedor.appendChild (textoRandom)
-       console.log(nuevoSubtitulo.isConnected)
+    //   contenedor.appendChild(nuevoSubtitulo)
+    //   contenedor.appendChild (textoRandom)
+    //    console.log(nuevoSubtitulo.isConnected)
 
-       textoRandom.remove()
+    //    textoRandom.remove()
        //borra del DOM el elemento seleccionado
        // DOM - Copia Dinamica del HTML QUE ES LA QUE SE RENDERIZA EN LA WEB
        // console.log(document) - Objeto Document - tiene todo el DOM (EL HTML)
+
+       //Clase 9 -Eventos Y Promesas

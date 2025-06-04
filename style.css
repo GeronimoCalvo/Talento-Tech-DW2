@@ -36,6 +36,11 @@ SELECTOR - puede ser
     padding: 30px;
     text-align: center;
 }
+#caja{
+    width: 200px;
+    background-color: red;
+    height: 200px;
+}
 
 
 #displayProductos{
