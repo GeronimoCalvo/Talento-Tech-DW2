@@ -17,6 +17,7 @@ body {
   font-family: var(--font-base);
   color: var(--text-color);
   line-height: 1.5;
+  background-color:aqua
 }
 
 header {
@@ -24,6 +25,7 @@ header {
   color: white;
   padding: 1.5rem;
   text-align: center;
+  font-family: cursive;
 }
 
 header h1 {
@@ -89,3 +91,13 @@ header p {
 .card button:hover {
   background: #e6c200;
 }
+footer {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 10px;
+            background-color: #3e444a;
+            color: #d4d5dc;
+            margin-top: 20px;
+        }

@@ -1,43 +1,34 @@
-/* ecommerce.js: Página e-commerce solo con JavaScript */
-(() => {
-  // 1. Insertar estilos con JS
-  const style = document.createElement('style');
-  style.textContent = `
-    body { font-family: Arial, Helvetica, sans-serif; margin: 0; background: #f3f3f3; }
-    header { background: #333; color: #fff; padding: 1rem; text-align: center; }
-    #product-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 1rem; padding: 1rem; }
-    .card { background: #fff; border-radius: 0.75rem; box-shadow: 0 2px 8px rgba(0,0,0,0.1); padding: 1rem; display: flex; flex-direction: column; align-items: center; }
-    .card img { max-width: 100%; border-radius: 0.5rem; margin-bottom: 0.5rem; }
-    .card h3 { margin: 0.5rem 0; font-size: 1.2rem; }
-    .card p { margin: 0.25rem 0; }
-    .card button { margin-top: auto; padding: 0.5rem 1rem; border: none; border-radius: 0.5rem; background: #007bff; color: #fff; cursor: pointer; transition: background 0.3s; }
-    .card button:hover { background: #0056b3; }
-  `;
-  document.head.appendChild(style);
-
-  // 2. Datos de productos
+(function initEcommerce() {
   const productos = [
-    { titulo: "iPhone 14", marca: "Apple", precio: 150000, stock: 10, img: "https://maximstore.com/_next/image?url=https%3A%2F%2Fback.maximstore.com%2Fstatic%2Fimages%2F81e1e805-03f8-42c2-a494-ad6772fb6db1.png&w=3840&q=75" },
-    { titulo: "Galaxy S23", marca: "Samsung", precio: 130000, stock: 7, img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTLtwxFGHhYrqnP2eWrEX5HrhzkPpwxXe3jOw&s" },
-    { titulo: "Joystick PS5", marca: "SONY", precio: 110000, stock: 5, img: "https://arsonyb2c.vtexassets.com/arquivos/ids/348023/PS5_DS_Pshot_A.jpg?v=638767911345030000" },
-    { titulo: "Heladera Smart", marca: "LG", precio: 200000, stock: 4, img: "https://www.lg.com/ar/images/heladeras/md07552263/gallery/medium01.jpg" },
-    { titulo: "Heladera Frost Free", marca: "Samsung", precio: 180000, stock: 6, img: "https://images.samsung.com/is/image/samsung/latin_rf27t5200s8-big.jpg" },
-    { titulo: "Smart TV 55\"", marca: "Sony", precio: 220000, stock: 3, img: "https://www.sony.com.ar/image/Smart-TV-LED-4K-Sony-X80K.jpg" },
-    { titulo: "Smart TV 65\"", marca: "LG", precio: 250000, stock: 2, img: "https://www.lg.com/ar/images/tv/md07535364/gallery/S25_A.jpg" }
+    { titulo: 'iPhone 16', marca: 'Apple', precio: 150000, stock: 40, img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNSfkKPZva_yiOAVP61JQZ5QNaXW7cPnr1NA&s' },
+    { titulo: 'Galaxy S23', marca: 'Samsung', precio: 130000, stock: 40, img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTWWoNgVy-Aoh814e-wDoRiQPDZQHzVxG9-4Q&s' },
+    { titulo: 'Joystick PS5', marca: 'SONY', precio: 110000, stock: 50, img: 'https://arsonyb2c.vtexassets.com/arquivos/ids/348023-800-800?v=638767911345030000&width=800&height=800&aspect=true' },
+    { titulo: 'Heladera Smart', marca: 'LG', precio: 200000, stock: 20, img: 'https://www.lg.com/ar/images/heladeras/md05913259/gallery/medium01.jpg' },
+    { titulo: 'Computadora Escritorio', marca: 'HP', precio: 100000, stock: 30, img: 'https://www.worldcomputers.com.ec/wp-content/uploads/2022/03/Computador-de-escritiorio.webp' },
+    { titulo: 'Consola PS5"', marca: 'Sony', precio: 220000, stock: 15, img: 'https://arsonyb2c.vtexassets.com/arquivos/ids/366582/Imagen-02_2000-x-2000-px.jpg.jpg?v=638826154074330000' },
+    { titulo: 'Smart TV 65"', marca: 'LG', precio: 250000, stock: 20, img: 'https://lgear.vtexassets.com/arquivos/ids/158036-800-auto?v=638845593707200000&width=800&height=auto&aspect=true' }
   ];
 
-  // 3. Crear header y agregar al body
+  const carrito = [];
+
   const header = document.createElement('header');
-  header.innerHTML = `<h1>Tienda Electrónica</h1><p>Selecciona tus productos favoritos</p>`;
+  header.innerHTML = `<h1>Tienda Electrónica</h1><button id="finalize-btn">Finalizar compra</button>`;
   document.body.appendChild(header);
 
-  // 4. Contenedor de productos
+  const main = document.createElement('div');
+  main.id = 'main';
+  document.body.appendChild(main);
+
   const container = document.createElement('div');
   container.id = 'product-list';
-  document.body.appendChild(container);
+  main.appendChild(container);
 
-  // 5. Renderizar tarjetas
-  productos.forEach(prod => {
+  const cartPanel = document.createElement('div');
+  cartPanel.id = 'cart-panel';
+  cartPanel.innerHTML = `<h2>Carrito</h2><ul id="cart-items"></ul><p id="cart-total">Total: $0</p>`;
+  main.appendChild(cartPanel);
+
+  function crearTarjeta(prod) {
     const card = document.createElement('div');
     card.className = 'card';
     card.innerHTML = `
@@ -45,10 +36,74 @@
       <h3>${prod.titulo}</h3>
       <p>Marca: ${prod.marca}</p>
       <p>Precio: $${prod.precio.toLocaleString()}</p>
-      <p>Stock: ${prod.stock}</p>
-      <button>Agregar al carrito</button>
+      <p class="stock">Stock: ${prod.stock}</p>
+      <input type="number" class="qty-input" min="1" max="${prod.stock}" value="1">
+      <button ${prod.stock === 0 ? 'disabled' : ''}>${prod.stock === 0 ? 'Sin stock' : 'Agregar al carrito'}</button>
     `;
-    card.querySelector('button').addEventListener('click', () => alert(`${prod.titulo} agregado al carrito!`));
-    container.appendChild(card);
+
+    const btn = card.querySelector('button');
+    const input = card.querySelector('.qty-input');
+    const stockP = card.querySelector('.stock');
+
+    btn.addEventListener('click', () => {
+      let qty = Math.min(prod.stock, parseInt(input.value) || 0);
+      if (qty <= 0) return;
+      prod.stock -= qty;
+      const existing = carrito.find(i => i.titulo === prod.titulo);
+      if (existing) existing.cantidad += qty;
+      else carrito.push({ titulo: prod.titulo, precio: prod.precio, cantidad: qty });
+
+      stockP.innerText = `Stock: ${prod.stock}`;
+      actualizarCarrito();
+      if (prod.stock === 0) {
+        btn.disabled = true;
+        input.disabled = true;
+        alert('El producto que esta seleccionando no hay más stock');
+      }
+    });
+
+    card.addEventListener('mouseover', () => {
+      card.style.border = '2px solid black';
+      card.style.opacity = '0.8';
+    });
+    card.addEventListener('mouseout', () => {
+      card.style.border = 'none';
+      card.style.opacity = '1';
+    });
+
+    return card;
+  }
+
+  function actualizarCarrito() {
+    const cartItems = document.getElementById('cart-items');
+    const cartTotal = document.getElementById('cart-total');
+    cartItems.innerHTML = '';
+    let total = 0;
+    for (const idx in carrito) {
+      const item = carrito[idx];
+      const li = document.createElement('li');
+      const subtotal = item.precio * item.cantidad;
+      li.innerText = `${item.titulo} x ${item.cantidad} - $${subtotal.toLocaleString()}`;
+      cartItems.appendChild(li);
+      total += subtotal;
+    }
+    cartTotal.innerText = `Total: $${total.toLocaleString()}`;
+    return total;
+  }
+
+  document.getElementById('finalize-btn').addEventListener('click', () => {
+    if (carrito.length === 0) {
+      alert('No agregaste productos al carrito');
+      return;
+    }
+    const total = actualizarCarrito();
+    alert(`Compra realizada. Total pagado: $${total.toLocaleString()}`);
+    carrito.length = 0;
+    actualizarCarrito();
   });
+
+  for (const idx in productos) {
+    const tarjeta = crearTarjeta(productos[idx]);
+    container.appendChild(tarjeta);
+  }
 })();
